@@ -1,74 +1,566 @@
 [
   {
-    "title": "Subnautica 2",
-    "full_title": "Subnautica 2 Free Download (v0.10.0.113109 + Co-op)",
-    "version": "v0.10.0.113109 + Co-op",
-    "url": "https://piratedgame.com/subnautica-2-free-download/",
-    "slug": "subnautica-2-free-download",
-    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962700/header.jpg",
-    "categories": ["Action", "Adventure", "Survival"],
-    "description": "Subnautica 2",
+    "title": "Alex Kidd In Miracle World Dx",
+    "url": "https://piratedgame.com/alex-kidd-in-miracle-world-dx-free-download/",
+    "slug": "alex-kidd-in-miracle-world-dx-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
     "download_links": [
       {
         "label": "Direct Download",
-        "url": "https://piratedgame.com/subnautica-2-free-download/",
+        "url": "https://piratedgame.com/alex-kidd-in-miracle-world-dx-free-download/",
         "host": "PiratedGame"
       }
-    ],
-    "size": "14.6 GB"
+    ]
+  },
+  {
+    "title": "Bigfoot",
+    "url": "https://piratedgame.com/bigfoot-free-download/",
+    "slug": "bigfoot-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/bigfoot-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Blur",
+    "url": "https://piratedgame.com/blur-free-download/",
+    "slug": "blur-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/blur-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Boneworks",
+    "url": "https://piratedgame.com/boneworks-free-download/",
+    "slug": "boneworks-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/boneworks-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Broken Pieces",
+    "url": "https://piratedgame.com/broken-pieces-free-download/",
+    "slug": "broken-pieces-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/broken-pieces-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Bus Simulator 18",
+    "url": "https://piratedgame.com/bus-simulator-18-free-download/",
+    "slug": "bus-simulator-18-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/bus-simulator-18-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Bus World",
+    "url": "https://piratedgame.com/bus-world-free-download/",
+    "slug": "bus-world-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/bus-world-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "City Car Driving",
+    "url": "https://piratedgame.com/city-car-driving-free-download/",
+    "slug": "city-car-driving-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/city-car-driving-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Doodle God",
+    "url": "https://piratedgame.com/doodle-god-free-download/",
+    "slug": "doodle-god-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/doodle-god-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "European Ship Simulator Remastered",
+    "url": "https://piratedgame.com/european-ship-simulator-remastered-free-download/",
+    "slug": "european-ship-simulator-remastered-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/european-ship-simulator-remastered-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Farm Together",
+    "url": "https://piratedgame.com/farm-together-free-download/",
+    "slug": "farm-together-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/farm-together-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Fez",
+    "url": "https://piratedgame.com/fez-free-download/",
+    "slug": "fez-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/fez-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Five Nights At Freddys Sister Location",
+    "url": "https://piratedgame.com/five-nights-at-freddys-sister-location-free-download/",
+    "slug": "five-nights-at-freddys-sister-location-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/five-nights-at-freddys-sister-location-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Forager",
+    "url": "https://piratedgame.com/forager-free-download/",
+    "slug": "forager-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/forager-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
   },
   {
     "title": "Forza Horizon 6",
-    "full_title": "Forza Horizon 6 Free Download",
-    "version": "v360.259-P2P",
     "url": "https://piratedgame.com/forza-horizon-6-free-download/",
     "slug": "forza-horizon-6-free-download",
     "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg",
-    "categories": ["Racing", "Sports"],
-    "description": "Forza Horizon 6",
     "download_links": [
       {
         "label": "Direct Download",
         "url": "https://piratedgame.com/forza-horizon-6-free-download/",
         "host": "PiratedGame"
       }
-    ],
-    "size": "N/A"
+    ]
+  },
+  {
+    "title": "Gears Tactics",
+    "url": "https://piratedgame.com/gears-tactics-free-download/",
+    "slug": "gears-tactics-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/gears-tactics-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Gorn",
+    "url": "https://piratedgame.com/gorn-free-download/",
+    "slug": "gorn-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/gorn-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Job Simulator",
+    "url": "https://piratedgame.com/job-simulator-free-download/",
+    "slug": "job-simulator-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/job-simulator-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Kur",
+    "url": "https://piratedgame.com/kur-free-download/",
+    "slug": "kur-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/kur-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Medieval Ii Total War",
+    "url": "https://piratedgame.com/medieval-ii-total-war-free-download/",
+    "slug": "medieval-ii-total-war-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/medieval-ii-total-war-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
   },
   {
     "title": "Microsoft Flight Simulator",
-    "full_title": "Microsoft Flight Simulator Free Download",
-    "version": "",
     "url": "https://piratedgame.com/microsoft-flight-simulator-free-download/",
     "slug": "microsoft-flight-simulator-free-download",
-    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg",
-    "categories": ["Simulation"],
-    "description": "Microsoft Flight Simulator",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
     "download_links": [
       {
         "label": "Direct Download",
         "url": "https://piratedgame.com/microsoft-flight-simulator-free-download/",
         "host": "PiratedGame"
       }
-    ],
-    "size": "N/A"
+    ]
   },
   {
-    "title": "Stellar Blade",
-    "full_title": "Stellar Blade Free Download",
-    "version": "VOICES38",
-    "url": "https://piratedgame.com/stellar-blade-free-download/",
-    "slug": "stellar-blade-free-download",
-    "image": "https://piratedgame.com/wp-content/uploads/2026/05/stellar-bladefeatured_img_600x900-277x420.jpg",
-    "categories": ["Action"],
-    "description": "Stellar Blade",
+    "title": "Mirrors Edge",
+    "url": "https://piratedgame.com/mirrors-edge-free-download/",
+    "slug": "mirrors-edge-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
     "download_links": [
       {
         "label": "Direct Download",
-        "url": "https://piratedgame.com/stellar-blade-free-download/",
+        "url": "https://piratedgame.com/mirrors-edge-free-download/",
         "host": "PiratedGame"
       }
-    ],
-    "size": "N/A"
+    ]
+  },
+  {
+    "title": "Moving Out",
+    "url": "https://piratedgame.com/moving-out-free-download/",
+    "slug": "moving-out-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/moving-out-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Mr President",
+    "url": "https://piratedgame.com/mr-president-free-download/",
+    "slug": "mr-president-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/mr-president-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Omori",
+    "url": "https://piratedgame.com/omori-free-download/",
+    "slug": "omori-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/omori-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Party Panic",
+    "url": "https://piratedgame.com/party-panic-free-download/",
+    "slug": "party-panic-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/party-panic-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Rise Of The Tomb Raider",
+    "url": "https://piratedgame.com/rise-of-the-tomb-raider-free-download/",
+    "slug": "rise-of-the-tomb-raider-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/rise-of-the-tomb-raider-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Scorn",
+    "url": "https://piratedgame.com/scorn-free-download/",
+    "slug": "scorn-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/scorn-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Simplerockets 2",
+    "url": "https://piratedgame.com/simplerockets-2-free-download/",
+    "slug": "simplerockets-2-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/simplerockets-2-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Spore Complete Edition",
+    "url": "https://piratedgame.com/spore-complete-edition-free-download/",
+    "slug": "spore-complete-edition-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/spore-complete-edition-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Streamer Life Simulator",
+    "url": "https://piratedgame.com/streamer-life-simulator-free-download/",
+    "slug": "streamer-life-simulator-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/streamer-life-simulator-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Stride Vr",
+    "url": "https://piratedgame.com/stride-vr-free-download/",
+    "slug": "stride-vr-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/stride-vr-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Stronghold 2 Steam Edition",
+    "url": "https://piratedgame.com/stronghold-2-steam-edition-free-download/",
+    "slug": "stronghold-2-steam-edition-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/stronghold-2-steam-edition-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Subnautica 2",
+    "url": "https://piratedgame.com/subnautica-2-free-download/",
+    "slug": "subnautica-2-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962700/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download (Filekeeper)",
+        "url": "https://filekeeper.net/download",
+        "host": "Filekeeper"
+      },
+      {
+        "label": "Direct Download (Datanodes)",
+        "url": "https://datanodes.to/download",
+        "host": "Datanodes"
+      }
+    ]
+  },
+  {
+    "title": "Sunday Gold",
+    "url": "https://piratedgame.com/sunday-gold-free-download/",
+    "slug": "sunday-gold-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/sunday-gold-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Surgeon Simulator 2",
+    "url": "https://piratedgame.com/surgeon-simulator-2-free-download/",
+    "slug": "surgeon-simulator-2-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/surgeon-simulator-2-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Taiko No Tatsujin The Drum Master",
+    "url": "https://piratedgame.com/taiko-no-tatsujin-the-drum-master-free-download/",
+    "slug": "taiko-no-tatsujin-the-drum-master-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/taiko-no-tatsujin-the-drum-master-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "The Fridge Is Red",
+    "url": "https://piratedgame.com/the-fridge-is-red-free-download/",
+    "slug": "the-fridge-is-red-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/the-fridge-is-red-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Treasure Hunter Simulator",
+    "url": "https://piratedgame.com/treasure-hunter-simulator-free-download/",
+    "slug": "treasure-hunter-simulator-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/treasure-hunter-simulator-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Tricky Towers",
+    "url": "https://piratedgame.com/tricky-towers-free-download/",
+    "slug": "tricky-towers-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/tricky-towers-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Trifox",
+    "url": "https://piratedgame.com/trifox-free-download/",
+    "slug": "trifox-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/trifox-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Unpacking",
+    "url": "https://piratedgame.com/unpacking-free-download/",
+    "slug": "unpacking-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/unpacking-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
+  },
+  {
+    "title": "Warpips",
+    "url": "https://piratedgame.com/warpips-free-download/",
+    "slug": "warpips-free-download",
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+    "download_links": [
+      {
+        "label": "Direct Download",
+        "url": "https://piratedgame.com/warpips-free-download/",
+        "host": "PiratedGame"
+      }
+    ]
   }
 ]
