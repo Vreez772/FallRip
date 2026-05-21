@@ -73,25 +73,20 @@ async function init() {
 }
 
 function setupEventListeners() {
-    // Search
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     searchInputMobile.addEventListener('input', debounce(handleSearch, 300));
     
-    // Sort buttons
     document.querySelectorAll('.sort-btn').forEach(btn => {
         btn.addEventListener('click', () => handleSort(btn.dataset.sort));
     });
     
-    // Pagination
     prevPageBtn.addEventListener('click', () => changePage(-1));
     nextPageBtn.addEventListener('click', () => changePage(1));
     
-    // Modal close on overlay click
     gameModal.addEventListener('click', (e) => {
         if (e.target === gameModal) closeModal();
     });
     
-    // Escape key to close modal
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
     });
@@ -104,7 +99,6 @@ function renderCategoryChips() {
     
     categoryChips.innerHTML = `<button class="chip active" data-category="">Alle</button>${chipsHTML}`;
     
-    // Add click listeners
     categoryChips.querySelectorAll('.chip').forEach(chip => {
         chip.addEventListener('click', () => handleCategory(chip.dataset.category));
     });
@@ -112,27 +106,15 @@ function renderCategoryChips() {
 
 async function loadGames() {
     showLoading(true);
-    
     try {
         const response = await fetch(CONFIG.GAMES_DATA_URL);
         allGames = await response.json();
-        
-        // Update badge
         gameCountBadge.textContent = `${allGames.length.toLocaleString()} Spiele verfügbar`;
-        
-        // Apply initial filter
         applyFilters();
     } catch (error) {
         console.error('Failed to load games:', error);
-        gamesGrid.innerHTML = `
-            <div class="no-results" style="grid-column: 1 / -1;">
-                <div class="no-results-icon">⚠️</div>
-                <p class="no-results-title">Fehler beim Laden der Spiele</p>
-                <p class="no-results-subtitle">Bitte lade die Seite neu</p>
-            </div>
-        `;
+        gamesGrid.innerHTML = `<div class="no-results"><p>Fehler beim Laden der Spiele</p></div>`;
     }
-    
     showLoading(false);
 }
 
@@ -141,8 +123,6 @@ function showLoading(show) {
         loadingSkeleton.style.display = 'grid';
         gamesGrid.style.display = 'none';
         noResults.style.display = 'none';
-        
-        // Generate skeleton cards
         loadingSkeleton.innerHTML = Array(24).fill('').map(() => `
             <div class="skeleton-card">
                 <div class="skeleton skeleton-image"></div>
@@ -160,11 +140,8 @@ function showLoading(show) {
 
 function handleSearch(e) {
     searchQuery = e.target.value.toLowerCase();
-    
-    // Sync both search inputs
     searchInput.value = e.target.value;
     searchInputMobile.value = e.target.value;
-    
     currentPage = 1;
     applyFilters();
 }
@@ -172,44 +149,31 @@ function handleSearch(e) {
 function handleCategory(category) {
     currentCategory = category;
     currentPage = 1;
-    
-    // Update active chip
     categoryChips.querySelectorAll('.chip').forEach(chip => {
         chip.classList.toggle('active', chip.dataset.category === category);
     });
-    
     applyFilters();
 }
 
 function handleSort(sort) {
     currentSort = sort;
     currentPage = 1;
-    
-    // Update active button
     document.querySelectorAll('.sort-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.sort === sort);
     });
-    
     applyFilters();
 }
 
 function applyFilters() {
-    // Filter
     filteredGames = allGames.filter(game => {
         const matchesSearch = !searchQuery || 
             game.title.toLowerCase().includes(searchQuery) ||
             (game.description && game.description.toLowerCase().includes(searchQuery));
-        
         const matchesCategory = !currentCategory || 
             (game.categories && game.categories.some(c => c === currentCategory));
-        
         return matchesSearch && matchesCategory;
     });
-    
-    // Sort
     sortGames();
-    
-    // Render
     renderGames();
     renderPagination();
 }
@@ -224,7 +188,6 @@ function sortGames() {
             break;
         case 'newest':
         default:
-            // Keep original order (assumed to be newest first)
             break;
     }
 }
@@ -233,8 +196,6 @@ function renderGames() {
     const start = (currentPage - 1) * CONFIG.PAGE_SIZE;
     const end = start + CONFIG.PAGE_SIZE;
     const pageGames = filteredGames.slice(start, end);
-    
-    // Update results count
     resultsCount.textContent = filteredGames.length.toLocaleString();
     
     if (pageGames.length === 0) {
@@ -245,10 +206,8 @@ function renderGames() {
     
     gamesGrid.style.display = 'grid';
     noResults.style.display = 'none';
-    
     gamesGrid.innerHTML = pageGames.map(game => createGameCard(game)).join('');
     
-    // Add click listeners to cards
     gamesGrid.querySelectorAll('.game-card').forEach(card => {
         card.addEventListener('click', () => openGameModal(card.dataset.slug));
     });
@@ -257,8 +216,6 @@ function renderGames() {
 function createGameCard(game) {
     const primaryCategory = game.categories?.[0] || '';
     const categoryColor = CATEGORY_COLORS[primaryCategory] || 'oklch(0.55 0.10 265)';
-    const hasDownloads = (game.download_links?.length || 0) > 0;
-    
     return `
         <div class="game-card" data-slug="${game.slug}">
             <div class="game-card-image">
@@ -266,32 +223,13 @@ function createGameCard(game) {
                     `<img src="${game.image}" alt="${escapeHtml(game.title)}" loading="lazy" onerror="this.parentElement.innerHTML=createPlaceholder('${escapeHtml(game.title)}')">` :
                     createPlaceholder(game.title)
                 }
-                ${primaryCategory ? 
-                    `<span class="game-card-badge" style="background: ${categoryColor}cc; backdrop-filter: blur(4px);">${primaryCategory}</span>` : 
-                    ''
-                }
-                ${hasDownloads ? 
-                    `<span class="game-card-downloads">
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="7 10 12 15 17 10"/>
-                            <line x1="12" y1="15" x2="12" y2="3"/>
-                        </svg>
-                        ${game.download_links.length}
-                    </span>` : 
-                    ''
-                }
+                ${primaryCategory ? `<span class="game-card-badge" style="background: ${categoryColor}cc;">${primaryCategory}</span>` : ''}
                 <div class="game-card-gradient"></div>
             </div>
             <div class="game-card-body">
                 <h3 class="game-card-title">${escapeHtml(game.title)}</h3>
                 <div class="game-card-meta">
                     ${game.version ? `<span class="game-card-version">${escapeHtml(game.version)}</span>` : '<span></span>'}
-                    <div class="game-card-tags">
-                        ${(game.tags || []).slice(0, 2).map(tag => 
-                            `<span class="game-card-tag">${escapeHtml(tag)}</span>`
-                        ).join('')}
-                    </div>
                 </div>
             </div>
         </div>
@@ -299,29 +237,19 @@ function createGameCard(game) {
 }
 
 function createPlaceholder(title) {
-    return `
-        <div class="game-card-placeholder">
-            <div class="game-card-placeholder-icon">🎮</div>
-            <span class="game-card-placeholder-text">${escapeHtml(title || '')}</span>
-        </div>
-    `;
+    return `<div class="game-card-placeholder"><span>🎮</span><span>${escapeHtml(title || '')}</span></div>`;
 }
 
 function renderPagination() {
     const totalPages = Math.ceil(filteredGames.length / CONFIG.PAGE_SIZE);
-    
     if (totalPages <= 1) {
         pagination.style.display = 'none';
         return;
     }
-    
     pagination.style.display = 'flex';
-    
-    // Update prev/next buttons
     prevPageBtn.disabled = currentPage === 1;
     nextPageBtn.disabled = currentPage === totalPages;
     
-    // Generate page numbers
     let pages = [];
     if (totalPages <= 7) {
         pages = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -337,13 +265,12 @@ function renderPagination() {
         `<button class="pagination-number ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`
     ).join('');
     
-    // Add click listeners
     paginationNumbers.querySelectorAll('.pagination-number').forEach(btn => {
         btn.addEventListener('click', () => {
             currentPage = parseInt(btn.dataset.page);
             renderGames();
             renderPagination();
-            scrollToGames();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 }
@@ -353,85 +280,38 @@ function changePage(delta) {
     currentPage = Math.max(1, Math.min(totalPages, currentPage + delta));
     renderGames();
     renderPagination();
-    scrollToGames();
-}
-
-function scrollToGames() {
-    document.getElementById('games-grid').scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function openGameModal(slug) {
     const game = allGames.find(g => g.slug === slug);
     if (!game) return;
     
-    const primaryCategory = game.categories?.[0] || '';
-    const categoryColor = CATEGORY_COLORS[primaryCategory] || 'oklch(0.55 0.10 265)';
-    
     modalContent.innerHTML = `
-        ${game.image ? 
-            `<img src="${game.image}" alt="${escapeHtml(game.title)}" class="modal-image" onerror="this.style.display='none'">` : 
-            ''
-        }
+        ${game.image ? `<img src="${game.image}" alt="${escapeHtml(game.title)}" class="modal-image" onerror="this.style.display='none'">` : ''}
         <div class="modal-body">
             <h2 class="modal-title">${escapeHtml(game.title)}</h2>
             ${game.version ? `<span class="modal-version">${escapeHtml(game.version)}</span>` : ''}
-            
             <div class="modal-categories">
-                ${(game.categories || []).map(cat => {
-                    const color = CATEGORY_COLORS[cat] || 'oklch(0.55 0.10 265)';
-                    return `<span class="modal-category" style="background: ${color};">${escapeHtml(cat)}</span>`;
-                }).join('')}
+                ${(game.categories || []).map(cat => `<span class="modal-category">${escapeHtml(cat)}</span>`).join('')}
             </div>
-            
-            ${game.size ? `<p class="modal-size">📦 Größe: ${escapeHtml(game.size)}</p>` : ''}
-            
-            ${game.description && game.description !== game.title ? 
-                `<p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">${escapeHtml(game.description)}</p>` : 
-                ''
-            }
-            
-            ${(game.download_links?.length || 0) > 0 ? `
-                <h3 class="modal-section-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
-                    </svg>
-                    Download-Links
-                </h3>
-                <div class="download-links">
-                    ${game.download_links.map(link => `
+            <h3 class="modal-section-title">Download-Links</h3>
+            <div class="download-links">
+                ${(game.download_links && game.download_links.length > 0) ? 
+                    game.download_links.map(link => `
                         <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="download-link">
-                            <span class="download-link-label">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                    <polyline points="7 10 12 15 17 10"/>
-                                    <line x1="12" y1="15" x2="12" y2="3"/>
-                                </svg>
-                                ${escapeHtml(link.label || 'Download')}
-                            </span>
-                            <span class="download-link-host">${escapeHtml(link.host || 'Link')}</span>
+                            <span class="download-link-label">🚀 ${escapeHtml(link.label || 'Download')}</span>
+                            <span class="download-link-host">${escapeHtml(link.host || 'Mirror')}</span>
                         </a>
-                    `).join('')}
-                </div>
-            ` : '<p style="color: var(--text-muted);">Keine Download-Links verfügbar</p>'}
-            
-            ${game.url ? `
-                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                    <a href="${escapeHtml(game.url)}" target="_blank" rel="noopener noreferrer" 
-                       style="color: var(--accent); font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                        Auf SteamRip ansehen
-                    </a>
-                </div>
-            ` : ''}
+                    `).join('') :
+                    `<a href="${escapeHtml(game.url)}" target="_blank" rel="noopener noreferrer" class="download-link">
+                        <span class="download-link-label">🔗 Auf SteamRIP ansehen</span>
+                        <span class="download-link-host">SteamRIP</span>
+                    </a>`
+                }
+            </div>
         </div>
     `;
-    
     gameModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -441,7 +321,6 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// Utility functions
 function escapeHtml(text) {
     if (!text) return '';
     const div = document.createElement('div');
@@ -461,6 +340,4 @@ function debounce(func, wait) {
     };
 }
 
-// Make closeModal available globally
 window.closeModal = closeModal;
-window.scrollToGames = scrollToGames;
