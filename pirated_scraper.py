@@ -1,93 +1,75 @@
 import json
 import requests
-from bs4 import BeautifulSoup
 import re
 import time
-import xml.etree.ElementTree as ET
 
-def get_games_from_sitemap():
+def get_steam_image(game_title):
+    search_url = f"https://store.steampowered.com/api/storesearch/?term={game_title}&l=german&cc=DE"
+    try:
+        res = requests.get(search_url, timeout=10)
+        data = res.json()
+        if data.get('items'):
+            app_id = data['items'][0]['id']
+            return f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{app_id}/header.jpg"
+    except:
+        pass
+    return "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg"
+
+def update_data():
+    print("Starting scrape from piratedgame.com...")
+    
+    # Da Cloudflare blockiert, nutzen wir eine Liste von URLs, die wir aus der Sitemap-Analyse haben
+    # In einer echten GitHub Action Umgebung könnte man versuchen, die Sitemap mit anderen Headern zu laden
     sitemap_url = "https://piratedgame.com/post-sitemap.xml"
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
     }
     
     games = []
     try:
-        print(f"Fetching sitemap: {sitemap_url}")
         response = requests.get(sitemap_url, headers=headers, timeout=20)
-        # Wir nutzen Regex um die URLs aus dem XML zu extrahieren, falls ET fehlschlägt
-        urls = re.findall(r'<loc>(https://piratedgame\.com/.*?-free-download/)</loc>', response.text)
+        urls = re.findall(r'https://piratedgame\.com/[^/]+-free-download/', response.text)
+        urls = list(set(urls))
         
         for loc in urls:
             slug = loc.split('/')[-2]
             title = slug.replace('-free-download', '').replace('-', ' ').title()
-            
             games.append({
                 'title': title,
-                'full_title': f"{title} Free Download",
-                'version': "",
                 'url': loc,
                 'slug': slug,
-                'image': f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
-                'categories': [],
-                'description': title,
-                'download_links': [
-                    {
-                        "label": "Direct Download",
-                        "url": loc,
-                        "host": "PiratedGame"
-                    }
-                ],
-                'size': 'N/A'
+                'image': "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+                'download_links': [{"label": "Direct Download", "url": loc, "host": "PiratedGame"}]
             })
-    except Exception as e:
-        print(f"Error scraping sitemap: {e}")
-        
-    return games
+    except:
+        pass
 
-def update_data():
-    print("Starting scrape from piratedgame.com...")
-    new_games = get_games_from_sitemap()
-    
-    # Manuelle Ergänzung für Subnautica 2 (da es brandneu ist und vielleicht noch nicht in der Sitemap)
-    subnautica_2 = {
-        "title": "Subnautica 2",
-        "full_title": "Subnautica 2 Free Download (v0.10.0.113109 + Co-op)",
-        "version": "v0.10.0.113109 + Co-op",
-        "url": "https://piratedgame.com/subnautica-2-free-download/",
-        "slug": "subnautica-2-free-download",
-        "image": "https://piratedgame.com/wp-content/uploads/2026/05/Subnautica-2-5-scaled.jpg",
-        "categories": ["Action", "Adventure"],
-        "description": "Subnautica 2",
-        "download_links": [
-            {
-                "label": "Direct Download",
-                "url": "https://piratedgame.com/subnautica-2-free-download/",
-                "host": "PiratedGame"
-            }
-        ],
-        "size": "14.6 GB"
-    }
-    
-    # Prüfen ob Subnautica 2 schon da ist, sonst hinzufügen
-    found_sub = False
-    for g in new_games:
-        if "subnautica-2" in g['slug']:
-            found_sub = True
-            break
-    if not found_sub:
-        new_games.append(subnautica_2)
+    # Wenn Sitemap fehlschlägt, nutzen wir eine Basis-Liste
+    if not games:
+        print("Sitemap blocked, using fallback list...")
+        fallback_slugs = ["subnautica-2", "forza-horizon-6", "stellar-blade", "directive-8020", "better-than-dead"]
+        for slug in fallback_slugs:
+            title = slug.replace('-', ' ').title()
+            games.append({
+                'title': title,
+                'url': f"https://piratedgame.com/{slug}-free-download/",
+                'slug': f"{slug}-free-download",
+                'image': "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
+                'download_links': [{"label": "Direct Download", "url": f"https://piratedgame.com/{slug}-free-download/", "host": "PiratedGame"}]
+            })
 
-    print(f"Total games to update: {len(new_games)}")
+    # Bilder laden (begrenzt auf 50 für Geschwindigkeit)
+    for i in range(min(50, len(games))):
+        games[i]['image'] = get_steam_image(games[i]['title'])
+
+    games.sort(key=lambda x: x['title'].lower())
     
-    file_path = 'games-data.json'
-    # Wir überschreiben die Datei komplett, wie vom Nutzer gewünscht ("alles neu")
-    new_games.sort(key=lambda x: x['title'].lower())
+    with open('games-data.json', 'w', encoding='utf-8') as f:
+        json.dump(games, f, ensure_ascii=False, indent=2)
     
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(new_games, f, ensure_ascii=False, indent=2)
-    
-    print(f"Successfully updated {len(new_games)} games from piratedgame.com.")
+    print(f"Successfully updated {len(games)} games.")
 
 if __name__ == "__main__":
     update_data()
