@@ -94,7 +94,12 @@ def update_json(new_games):
             "description": "Subnautica 2",
             "download_links": [
                 {
-                    "label": "SteamRIP Download",
+                    "label": "GoFile Download",
+                    "url": "https://gofile.io/d/Nc2SFB",
+                    "host": "GoFile"
+                },
+                {
+                    "label": "SteamRIP Page",
                     "url": "https://steamrip.com/subnautica-2-free-download/",
                     "host": "SteamRIP"
                 }
