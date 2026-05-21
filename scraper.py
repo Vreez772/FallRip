@@ -33,21 +33,22 @@ def parse_markdown_to_games(md_content):
             # URL raten
             url = f"https://steamrip.com/{slug}-free-download/"
             
-            # Versuche ein besseres Bild zu finden (Steam Header)
-            # Wir nutzen hier eine einfache Heuristik: Wenn wir die Steam ID nicht haben, 
-            # nutzen wir einen Dienst wie steamstatic, falls wir später die ID finden.
-            # Für den Moment lassen wir es bei einem besseren Platzhalter oder versuchen es später zu fixen.
-            
             games.append({
                 'title': clean_title,
                 'full_title': title_text,
                 'version': version,
                 'url': url,
                 'slug': slug,
-                'image': f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg", # Wird später gefixt
+                'image': f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/0/header.jpg",
                 'categories': [],
                 'description': clean_title,
-                'download_links': [],
+                'download_links': [
+                    {
+                        "label": "SteamRIP Download",
+                        "url": url,
+                        "host": "SteamRIP"
+                    }
+                ],
                 'size': 'N/A'
             })
             seen_titles.add(clean_title)
@@ -73,7 +74,8 @@ def update_json(new_games):
             eg.update({
                 'title': ng['title'],
                 'full_title': ng['full_title'],
-                'version': ng['version']
+                'version': ng['version'],
+                'download_links': ng['download_links'] # Immer aktualisieren
             })
             final_games.append(eg)
         else:
@@ -90,7 +92,13 @@ def update_json(new_games):
             "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962700/header.jpg",
             "categories": ["Adventure", "Survival"],
             "description": "Subnautica 2",
-            "download_links": [],
+            "download_links": [
+                {
+                    "label": "SteamRIP Download",
+                    "url": "https://steamrip.com/subnautica-2-free-download/",
+                    "host": "SteamRIP"
+                }
+            ],
             "size": "N/A"
         },
         {
@@ -99,10 +107,16 @@ def update_json(new_games):
             "version": "Latest",
             "url": "https://steamrip.com/forza-horizon-6-free-download/",
             "slug": "forza-horizon-6",
-            "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg", # Platzhalter von FH5
+            "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg",
             "categories": ["Racing", "Open World"],
             "description": "Forza Horizon 6",
-            "download_links": [],
+            "download_links": [
+                {
+                    "label": "SteamRIP Download",
+                    "url": "https://steamrip.com/forza-horizon-6-free-download/",
+                    "host": "SteamRIP"
+                }
+            ],
             "size": "N/A"
         }
     ]
